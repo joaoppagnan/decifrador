@@ -1,5 +1,4 @@
-/* Cifrador Numero 1
- */
+/* Cifrador Numero 1 */
 
 #include <stdio.h>
 
@@ -9,25 +8,26 @@ char buffer_saida[TAM_BUFFER];
 
 const char senha[] = "SENHASECRETA";
 
-char soma_modulo_alfabeto(char a, char b) {
+char soma_modulo_alfabeto(char a, char b){
   char a0, b0, c0;
-  if (a>='A' && a<='Z') {
-    a0 = a-'A';
-    b0 = b-'A';
-    c0 = 'A'+(a0+b0)%('Z'-'A'+1);
+  if (a>='A' && a<='Z'){
+    a0 = a - 'A';
+    b0 = b - 'A';
+    c0 = 'A' + (a0 + b0)%('Z' - 'A' + 1);
     return c0;
-  } else return a;
+  }
+  else return a;
 }
 
-int main() {
-  int j=0;
-  int i=0;
+int main(){
+  int j = 0;
+  int i = 0;
 
   /* Leitura da entrada */
   fgets(buffer_entrada, TAM_BUFFER, stdin);
 
 
-  for (i=0; (i<TAM_BUFFER) && (buffer_entrada[i]!='\0') && (buffer_entrada[i]!='\n'); i++) {
+  for (i=0; (i<TAM_BUFFER) && (buffer_entrada[i]!='\0') && (buffer_entrada[i]!='\n'); i++){
 
     buffer_saida[i] = soma_modulo_alfabeto(buffer_entrada[i], senha[j]);
     j++;
